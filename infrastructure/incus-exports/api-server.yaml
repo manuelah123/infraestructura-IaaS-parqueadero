@@ -1,0 +1,31 @@
+architecture: x86_64
+config:
+  image.architecture: amd64
+  image.description: Debian bookworm amd64 (20260521_05:24)
+  image.os: Debian
+  image.release: bookworm
+  image.serial: "20260521_05:24"
+  image.type: squashfs
+  image.variant: default
+  volatile.base_image: 8c9caec644420bbc2bff896a501715290bbbed3a572b6a742a5e53910b12aa62
+  volatile.cloud-init.instance-id: 43b36225-3b47-4410-9568-00af47f2a9b1
+  volatile.eth0.host_name: vethf5bf26cf
+  volatile.eth0.hwaddr: 10:66:6a:a3:3e:e0
+  volatile.idmap.base: "0"
+  volatile.idmap.current: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.idmap.next: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.last_state.idmap: '[]'
+  volatile.last_state.power: RUNNING
+  volatile.last_state.ready: "false"
+  volatile.uuid: af4d2203-7830-4973-aaa6-3671e4baff43
+  volatile.uuid.generation: af4d2203-7830-4973-aaa6-3671e4baff43
+devices:
+  fastapi8000:
+    connect: tcp:10.245.23.232:8000
+    listen: tcp:0.0.0.0:8000
+    type: proxy
+ephemeral: false
+profiles:
+  - default
+stateful: false
+description: ""

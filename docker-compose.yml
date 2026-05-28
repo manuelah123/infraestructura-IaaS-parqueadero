@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: keycloak-server
+    ports:
+      - "8080:8080"
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HOSTNAME_STRICT: "false"
+      KC_HTTP_ENABLED: "true"
+    command: start-dev
+    networks:
+      - parking-network
+
+  api:
+    build: ./backend
+    container_name: api-server
+    ports:
+      - "8000:8000"
+    environment:
+      KEYCLOAK_URL: http://keycloak:8080
+      DATABASE_URL: postgresql://root@db:26257/parqueadero?sslmode=disable
+    depends_on:
+      - keycloak
+      - db
+    networks:
+      - parking-network
+
+  frontend:
+    build: ./frontend
+    container_name: parking-front
+    ports:
+      - "5173:80"
+    environment:
+      VITE_KEYCLOAK_URL: http://localhost:8080
+      VITE_API_URL: http://localhost:8000
+    depends_on:
+      - api
+    networks:
+      - parking-network
+
+  db:
+    image: cockroachdb/cockroach:latest
+    container_name: cockroach-db
+    command: start-single-node --insecure
+    ports:
+      - "26257:26257"
+      - "8081:8080"
+    environment:
+      COCKROACH_DATABASE: parqueadero
+    volumes:
+      - cockroach-data:/cockroach/cockroach-data
+    networks:
+      - parking-network
+
+volumes:
+  cockroach-data:
+
+networks:
+  parking-network:
+    driver: bridge

@@ -1,0 +1,19 @@
+config: {}
+description: Default Incus profile
+devices:
+  eth0:
+    name: eth0
+    network: incusbr0
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
+name: default
+used_by:
+  - /1.0/instances/keycloak-server
+  - /1.0/instances/api-server
+  - /1.0/instances/db-node1
+  - /1.0/instances/db-node2
+  - /1.0/instances/db-node3
+project: default

@@ -1,0 +1,20 @@
+config:
+  ipv4.address: 10.245.23.1/24
+  ipv4.nat: "true"
+  ipv6.address: fd42:5f5d:95b4:ed52::1/64
+  ipv6.nat: "true"
+description: ""
+name: incusbr0
+type: bridge
+used_by:
+  - /1.0/instances/api-server
+  - /1.0/instances/db-node1
+  - /1.0/instances/db-node2
+  - /1.0/instances/db-node3
+  - /1.0/instances/keycloak-server
+  - /1.0/profiles/default
+managed: true
+status: Created
+locations:
+  - none
+project: default

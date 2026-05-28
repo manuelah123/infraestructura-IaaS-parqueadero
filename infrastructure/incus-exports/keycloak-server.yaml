@@ -1,0 +1,33 @@
+architecture: x86_64
+config:
+  image.architecture: amd64
+  image.description: Debian bookworm amd64 (20260521_05:24)
+  image.os: Debian
+  image.release: bookworm
+  image.serial: "20260521_05:24"
+  image.type: squashfs
+  image.variant: default
+  security.nesting: "true"
+  security.syscalls.intercept.mknod: "true"
+  security.syscalls.intercept.setxattr: "true"
+  volatile.base_image: 8c9caec644420bbc2bff896a501715290bbbed3a572b6a742a5e53910b12aa62
+  volatile.cloud-init.instance-id: a42b56cc-37e2-4306-8a43-c757ff320fc6
+  volatile.eth0.host_name: vethd0688c1d
+  volatile.eth0.hwaddr: 10:66:6a:d2:a3:e4
+  volatile.idmap.base: "0"
+  volatile.idmap.current: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.idmap.next: '[{"Isuid":true,"Isgid":false,"Hostid":1000000,"Nsid":0,"Maprange":1000000000},{"Isuid":false,"Isgid":true,"Hostid":1000000,"Nsid":0,"Maprange":1000000000}]'
+  volatile.last_state.idmap: '[]'
+  volatile.last_state.power: RUNNING
+  volatile.uuid: 8ebcdb6c-b013-4593-a31e-6f04bc9122ed
+  volatile.uuid.generation: 8ebcdb6c-b013-4593-a31e-6f04bc9122ed
+devices:
+  keycloak8080:
+    connect: tcp:127.0.0.1:8080
+    listen: tcp:0.0.0.0:8080
+    type: proxy
+ephemeral: false
+profiles:
+  - default
+stateful: false
+description: ""

@@ -349,10 +349,10 @@ nano frontend/.env
 ## Credenciales de Prueba
 
 ```
-Keycloak Admin:    admin / admin
-Usuario Operador:  operador1 / Operador123*
-Usuario Admin:     admin.parqueadero / Admin123*
-Incus Web UI: http://127.0.0.1:35175/ui (ejecutar `incus webui`)
+Keycloak Admin:    admin / *****
+Usuario Operador:  operador1 / ************
+Usuario Admin:     admin.parqueadero / ********
+
 ```
 
 Acceso a servicios:
@@ -360,7 +360,7 @@ Acceso a servicios:
 - FastAPI Docs: http://127.0.0.1:8000/docs
 - Keycloak: http://127.0.0.1:8082/admin/
 - CockroachDB UI: http://127.0.0.1:8081
-
+- Incus Web UI: http://127.0.0.1:35175/ui (ejecutar `incus webui`)
 ---
 
 ## Solución de Problemas Comunes

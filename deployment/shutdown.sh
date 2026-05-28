@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "🛑 Deteniendo Sistema de Parqueadero..."
+echo " Deteniendo Sistema de Parqueadero..."
 
 incus stop --all
 
-echo "✅ Sistema detenido"
+echo " Sistema detenido"

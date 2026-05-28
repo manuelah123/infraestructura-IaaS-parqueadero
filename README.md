@@ -53,10 +53,6 @@ infraestructura-IaaS-parqueadero/
 │       ├── db-node2.yaml               (config nodo DB 2)
 │       ├── db-node3.yaml               (config nodo DB 3)
 │       └── profile-default.yaml        (perfil Incus)
-├── deployment/                        (Scripts de operación)
-│   ├── startup.sh                      (levantar todo)
-│   ├── shutdown.sh                     (detener todo)
-│   └── reset.sh                        (reiniciar limpio)
 ├── docs/                              (Documentación)
 │   └── ARQUITECTURA.md                 (detalles técnicos)
 └── docker-compose.yml                 (alternativa Docker Compose)
@@ -303,40 +299,6 @@ chmod +x deployment/reset.sh
 
 ---
 
-## Flujo de Trabajo Git
-
-### Descargar cambios del repositorio
-
-```bash
-git clone https://github.com/manuelah123/infraestructura-IaaS-parqueadero.git
-cd infraestructura-IaaS-parqueadero
-git pull origin main
-```
-
-### Hacer cambios locales
-
-```bash
-# Modificar archivos de backend, frontend, etc.
-vim backend/main.py
-
-# Ver cambios
-git status
-git diff backend/main.py
-```
-
-### Subir cambios
-
-```bash
-# Agregar archivos
-git add backend/main.py
-
-# Commit
-git commit -m "Agregar nuevo endpoint para obtener estadísticas"
-
-# Push a GitHub
-git push origin main
-```
-
 ### Sincronizar infraestructura
 
 ```bash
@@ -411,16 +373,6 @@ Acceso a servicios:
 | API no conecta DB | Verificar IP actual: `incus list`, actualizar DATABASE_URL |
 | Frontend no carga | Verificar `npm run dev` está ejecutando, PORT 5173 |
 | Contenedor no inicia | `incus logs <contenedor>` para ver errores |
-
----
-
-## Documentación Completa
-
-Para más detalles técnicos, ver:
-- `docs/ARQUITECTURA.md` - Detalles de arquitectura de 4 capas
-- `infrastructure/opentofu/` - Código IaC completo
-- `backend/requirements.txt` - Todas las dependencias
-- `frontend/package.json` - Paquetes Node.js
 
 ---
 
